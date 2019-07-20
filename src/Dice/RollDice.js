@@ -16,18 +16,18 @@ class RollDice extends Component {
     }
 
     static defaultProps = {
-        validFaces: [ 
+        validFaDieClassAppends: [ 
             'one', 'two', 'three', 'four', 'five', 'six'
         ]
     }
 
     roll = () => {
-        let faceOne = this.props.validFaces[
-            Math.floor(Math.random() * this.props.validFaces.length)
+        let faceOne = this.props.validFaDieClassAppends[
+            Math.floor(Math.random() * this.props.validFaDieClassAppends.length)
         ];
 
-        let faceTwo = this.props.validFaces[
-            Math.floor(Math.random() * this.props.validFaces.length)
+        let faceTwo = this.props.validFaDieClassAppends[
+            Math.floor(Math.random() * this.props.validFaDieClassAppends.length)
         ];
 
         this.setState({firstDice: faceOne, secondDice: faceTwo, rolling: true});
