@@ -7,17 +7,29 @@ class RollDice extends Component {
         super(props);
 
         this.state = {
-            firstDice: 0,
-            secondDice: 2,
+            firstDice: 'one',
+            secondDice: 'three',
             rolling: false
         };
 
         this.roll = this.roll.bind(this); //not really needed since I am using arrow function 
     }
 
+    static defaultProps = {
+        validFaces: [ 
+            'one', 'two', 'three', 'four', 'five', 'six'
+        ]
+    }
+
     roll = () => {
-        let faceOne = Math.floor(Math.random() * 6) * 1;
-        let faceTwo = Math.floor(Math.random() * 6) * 1;
+        let faceOne = this.props.validFaces[
+            Math.floor(Math.random() * this.props.validFaces.length)
+        ];
+
+        let faceTwo = this.props.validFaces[
+            Math.floor(Math.random() * this.props.validFaces.length)
+        ];
+
         this.setState({firstDice: faceOne, secondDice: faceTwo, rolling: true});
 
         setTimeout(() => {
